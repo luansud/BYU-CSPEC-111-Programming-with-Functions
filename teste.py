@@ -1,48 +1,10 @@
-month_list = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-]
-
-insert = 0
-while insert == 0:
-    date = input("Date: ")
-    if "," in date:
-        month, day, year = date.split(" ")
-        day = day.replace(",","")
-        try:
-            day = int(day)
-        except ValueError:
-            insert = 0
-        else:
-            if day <= 31 and month in month_list:
-                insert = 1
-                for i in month_list:
-                    if i == month:
-                        month = month_list.index(i)+1
-
-    elif "/" in date:
-        month, day, year = date.split("/")
-        try:
-            month = int(month)
-            day = int(day)
-        except ValueError:
-            insert = 0
-        else:
-            if month <= 12:
-                insert = 1
-
-year = year.strip()
-if month < 10: month = "0"+str(month)
-if day < 10: day = "0"+str(day)
-
-print(year,month,day,sep="-")
+with open("products.csv") as products_list:
+        next(products_list)
+        products_dic = {}
+        for line in products_list:
+            line = line.replace("\n","")
+            cod,name,price = line.split(",")
+            compound_list = [cod,name,price]
+            products_dic[cod] = compound_list
+            
+print(products_dic)
