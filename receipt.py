@@ -31,7 +31,7 @@ def main():
         print(f"\nNumber of Items: {items}")
         print(f"Subtotal: ${subtotal:.2f}")
         print(f"Sales Tax: ${tax:.2f}")
-        if day == "Friday":
+        if day == "Wednesday":
             print(f"Wednesday Discount: -${(total*0.10):.2f}")
             print(f"Total: ${wed_discount:.2f}")
         else:
